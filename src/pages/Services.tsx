@@ -97,8 +97,7 @@ const Services = () => {
               </Button>
               <Button 
                 size="lg" 
-                variant="outline" 
-                className="border-2 border-white text-white hover:bg-white hover:text-brand-blue"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground"
                 asChild
               >
                 <a href="tel:818-571-4030" className="flex items-center gap-2">
@@ -212,8 +211,7 @@ const Services = () => {
               </Button>
               <Button 
                 size="lg" 
-                variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-primary font-semibold"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
                 asChild
               >
                 <a href="tel:818-571-4030" className="flex items-center gap-2">

@@ -36,7 +36,7 @@ const Header = () => {
 
           {/* Call Button - Desktop */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button asChild size="sm">
+            <Button asChild size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
               <a href="tel:818-571-4030" className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
                 <span className="font-semibold">818-571-4030</span>
@@ -95,7 +95,7 @@ const Header = () => {
               </Link>
               <a
                 href="tel:818-571-4030"
-                className="flex items-center gap-2 text-primary font-semibold px-2 py-1"
+                className="flex items-center gap-2 bg-primary text-primary-foreground font-semibold px-3 py-2 rounded-md"
               >
                 <Phone className="h-4 w-4" />
                 818-571-4030

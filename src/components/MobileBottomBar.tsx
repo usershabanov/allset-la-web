@@ -8,6 +8,7 @@ const MobileBottomBar = () => {
         {/* Call Button */}
         <a
           href="tel:818-571-4030"
+          className="flex flex-col items-center justify-center py-3 px-2 bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
         >
           <Phone className="h-5 w-5 mb-1" />
           <span className="text-xs font-medium">Call</span>

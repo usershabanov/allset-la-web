@@ -11,7 +11,7 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="font-display font-bold text-2xl text-brand-blue">
+          <Link to="/" className="font-display font-bold text-2xl bg-gradient-to-r from-primary via-primary-glow to-brand-blue bg-clip-text text-transparent hover:opacity-80 transition-opacity">
             AllSet Appliance
           </Link>
 

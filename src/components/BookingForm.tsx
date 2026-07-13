@@ -6,31 +6,19 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Calendar } from '@/components/ui/calendar';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { CalendarIcon, CheckCircle } from 'lucide-react';
-import { format } from 'date-fns';
-import { cn } from '@/lib/utils';
+import { CheckCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const bookingSchema = z.object({
   name: z.string().trim().min(1, 'Name is required').max(100, 'Name too long'),
   phone: z.string().trim().min(10, 'Valid phone number required'),
-  email: z.string().trim().email('Valid email required'),
-  address: z.string().trim().min(1, 'Address is required'),
-  city: z.string().trim().min(1, 'City is required'),
-  zip: z.string().trim().min(5, 'Valid ZIP code required'),
+  email: z.union([z.literal(''), z.string().trim().email('Valid email required')]).optional(),
   applianceType: z.string().min(1, 'Please select appliance type'),
   brand: z.string().optional(),
+  preferredTime: z.string().optional(),
   problem: z.string().trim().min(10, 'Please describe the problem (minimum 10 characters)').max(1000, 'Description too long'),
-  preferredDate: z.date({
-    required_error: 'Please select a preferred date',
-  }),
-  preferredTime: z.string().min(1, 'Please select preferred time'),
-  consent: z.boolean().refine(val => val, 'You must agree to be contacted'),
-  honeypot: z.string().max(0, 'Spam detected'), // Hidden field for spam protection
+  honeypot: z.string().max(0, 'Spam detected'),
 });
 
 type BookingFormData = z.infer<typeof bookingSchema>;
@@ -47,10 +35,11 @@ const appliances = [
 ];
 
 const timeSlots = [
-  '8:00 AM - 12:00 PM',
-  '12:00 PM - 4:00 PM',
-  '4:00 PM - 8:00 PM',
-  'Flexible (Call to arrange)',
+  'ASAP',
+  'Morning',
+  'Afternoon',
+  'Evening',
+  'Flexible',
 ];
 
 const BookingForm = () => {
@@ -60,22 +49,31 @@ const BookingForm = () => {
   const form = useForm<BookingFormData>({
     resolver: zodResolver(bookingSchema),
     defaultValues: {
+      email: '',
+      brand: '',
+      preferredTime: 'Flexible',
       honeypot: '',
     },
   });
 
   const onSubmit = async (data: BookingFormData) => {
     try {
-      // In a real application, send to your backend API
-      console.log('Booking form data:', data);
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
+      const response = await fetch('/api/booking', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit');
+      }
+
       setIsSubmitted(true);
       toast({
-        title: 'Booking Request Submitted!',
-        description: "We'll contact you shortly to confirm your appointment.",
+        title: 'Request Sent',
+        description: "Your request was sent. We'll contact you shortly.",
       });
     } catch (error) {
       toast({
@@ -92,8 +90,8 @@ const BookingForm = () => {
         <CheckCircle className="h-16 w-16 text-primary mx-auto mb-4" />
         <h3 className="font-display font-semibold text-xl mb-2">Thank You!</h3>
         <p className="text-muted-foreground mb-4">
-          Your booking request has been submitted. We'll call you from{' '}
-          <span className="font-semibold text-primary">818-571-4030</span> to confirm your appointment.
+          Your request has been submitted. We'll call you from{' '}
+          <span className="font-semibold text-primary">818-571-4030</span> shortly.
         </p>
         <Button
           onClick={() => {
@@ -102,7 +100,7 @@ const BookingForm = () => {
           }}
           variant="outline"
         >
-          Submit Another Request
+          Send Another Request
         </Button>
       </div>
     );
@@ -112,7 +110,6 @@ const BookingForm = () => {
     <div className="max-w-2xl mx-auto">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-          {/* Honeypot field - hidden from users */}
           <input
             type="text"
             {...form.register('honeypot')}
@@ -129,7 +126,7 @@ const BookingForm = () => {
                 <FormItem>
                   <FormLabel>Name *</FormLabel>
                   <FormControl>
-                    <Input placeholder="Your full name" {...field} />
+                    <Input placeholder="Your name" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -151,71 +148,13 @@ const BookingForm = () => {
             />
           </div>
 
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email *</FormLabel>
-                <FormControl>
-                  <Input placeholder="your@email.com" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <FormField
-              control={form.control}
-              name="address"
-              render={({ field }) => (
-                <FormItem className="md:col-span-2">
-                  <FormLabel>Street Address *</FormLabel>
-                  <FormControl>
-                    <Input placeholder="123 Main St, Apt 4B" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="zip"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>ZIP Code *</FormLabel>
-                  <FormControl>
-                    <Input placeholder="90210" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-
-          <FormField
-            control={form.control}
-            name="city"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>City *</FormLabel>
-                <FormControl>
-                  <Input placeholder="Los Angeles" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <FormField
               control={form.control}
               name="applianceType"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Appliance Type *</FormLabel>
+                  <FormLabel>Appliance *</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger>
@@ -240,9 +179,9 @@ const BookingForm = () => {
               name="brand"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Brand (Optional)</FormLabel>
+                  <FormLabel>Brand</FormLabel>
                   <FormControl>
-                    <Input placeholder="e.g., Samsung, LG, Whirlpool" {...field} />
+                    <Input placeholder="Samsung, LG, Whirlpool..." {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -250,63 +189,16 @@ const BookingForm = () => {
             />
           </div>
 
-          <FormField
-            control={form.control}
-            name="problem"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Problem Description *</FormLabel>
-                <FormControl>
-                  <Textarea
-                    placeholder="Please describe the issue with your appliance..."
-                    className="min-h-[100px]"
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <FormField
               control={form.control}
-              name="preferredDate"
+              name="email"
               render={({ field }) => (
-                <FormItem className="flex flex-col">
-                  <FormLabel>Preferred Date *</FormLabel>
-                  <Popover>
-                    <PopoverTrigger asChild>
-                      <FormControl>
-                        <Button
-                          variant="outline"
-                          className={cn(
-                            'w-full pl-3 text-left font-normal',
-                            !field.value && 'text-muted-foreground'
-                          )}
-                        >
-                          {field.value ? (
-                            format(field.value, 'PPP')
-                          ) : (
-                            <span>Pick a date</span>
-                          )}
-                          <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                        </Button>
-                      </FormControl>
-                    </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0" align="start">
-                      <Calendar
-                        mode="single"
-                        selected={field.value}
-                        onSelect={field.onChange}
-                        disabled={(date) =>
-                          date < new Date() || date < new Date('1900-01-01')
-                        }
-                        initialFocus
-                        className="p-3 pointer-events-auto"
-                      />
-                    </PopoverContent>
-                  </Popover>
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input placeholder="your@email.com" {...field} />
+                  </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
@@ -317,11 +209,11 @@ const BookingForm = () => {
               name="preferredTime"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Preferred Time *</FormLabel>
+                  <FormLabel>Preferred time</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue placeholder="Select time slot" />
+                        <SelectValue placeholder="Choose a time" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
@@ -340,21 +232,18 @@ const BookingForm = () => {
 
           <FormField
             control={form.control}
-            name="consent"
+            name="problem"
             render={({ field }) => (
-              <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+              <FormItem>
+                <FormLabel>What is wrong? *</FormLabel>
                 <FormControl>
-                  <Checkbox
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
+                  <Textarea
+                    placeholder="Briefly describe the problem"
+                    className="min-h-[120px]"
+                    {...field}
                   />
                 </FormControl>
-                <div className="space-y-1 leading-none">
-                  <FormLabel className="text-sm">
-                    I agree to be contacted by AllSet Appliance regarding my service request. *
-                  </FormLabel>
-                  <FormMessage />
-                </div>
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -365,7 +254,7 @@ const BookingForm = () => {
             className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
             disabled={form.formState.isSubmitting}
           >
-            {form.formState.isSubmitting ? 'Submitting...' : 'Book My Repair'}
+            {form.formState.isSubmitting ? 'Sending...' : 'Send Request'}
           </Button>
         </form>
       </Form>

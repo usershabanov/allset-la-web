@@ -21,9 +21,9 @@ const Contact = () => {
     {
       icon: MapPin,
       title: 'Service Areas',
-      details: 'Greater Los Angeles',
-      subtitle: 'Marina del Rey to Long Beach',
-      link: '/areas'
+      details: 'Los Angeles & the Valley',
+      subtitle: 'Bell Canyon, Burbank, Calabasas, Porter Ranch, San Fernando',
+      link: '/contact#service-areas'
     },
     {
       icon: Clock,
@@ -130,7 +130,7 @@ const Contact = () => {
       </section>
 
       {/* Service Areas Quick Reference */}
-      <section className="py-16 bg-white">
+      <section id="service-areas" className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="font-display font-bold text-3xl mb-6">
@@ -138,16 +138,12 @@ const Contact = () => {
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 text-sm">
               {[
-                'Marina del Rey',
-                'Playa Vista',
-                'Beverly Hills',
-                'Brentwood',
-                'Pacific Palisades',
-                'Culver City',
-                'Santa Monica',
-                'Venice',
-                'Long Beach',
-                'El Segundo'
+                'Bell Canyon',
+                'Burbank',
+                'Calabasas',
+                'Porter Ranch',
+                'San Fernando Valley',
+                'San Fernando'
               ].map((area) => (
                 <div key={area} className="py-2 px-3 bg-secondary/50 rounded-lg text-center">
                   {area}

@@ -26,7 +26,7 @@ const Services = () => {
     {
       icon: WashingMachine,
       name: 'Washer Repair', 
-      description: 'From drain issues to no-spin, we fix it right the first time and back it with a solid warranty.',
+      description: 'From drain issues to no-spin, we diagnose the problem clearly and help get your washer running again.',
       slug: 'washer',
       commonIssues: ['Won\'t drain water', 'Not spinning', 'Excessive vibration', 'Won\'t start', 'Water leaks']
     },
@@ -134,16 +134,16 @@ const Services = () => {
             </div>
             <div className="text-center space-y-4">
               <CheckCircle className="h-12 w-12 text-primary mx-auto" />
-              <h3 className="font-display font-semibold text-xl">Warranty Included</h3>
+              <h3 className="font-display font-semibold text-xl">Upfront Communication</h3>
               <p className="text-muted-foreground">
-                All repairs backed by our comprehensive warranty on parts and labor
+                Clear next steps, practical scheduling, and straightforward service communication
               </p>
             </div>
             <div className="text-center space-y-4">
               <Wrench className="h-12 w-12 text-primary mx-auto" />
               <h3 className="font-display font-semibold text-xl">Expert Technicians</h3>
               <p className="text-muted-foreground">
-                Licensed, insured professionals with years of appliance repair experience
+                Licensed local appliance repair focused on common household equipment
               </p>
             </div>
           </div>
@@ -175,7 +175,7 @@ const Services = () => {
                     </div>
                     
                     <Button variant="outline" className="w-full" asChild>
-                      <Link to={`/services/${service.slug}`}>
+                      <Link to="/contact">
                         Learn More
                         <ChevronRight className="h-4 w-4 ml-2" />
                       </Link>

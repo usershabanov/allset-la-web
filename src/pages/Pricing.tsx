@@ -32,9 +32,9 @@ const Pricing = () => {
       price: '$120-180',
       description: 'Per hour for repair work',
       features: [
-        'Factory-trained technician',
+        'Local appliance repair technician',
         'Professional repair service',
-        '90-day labor warranty',
+        'Clear repair recommendations',
         'Same-day service available',
         'Evening & weekend availability'
       ],
@@ -46,7 +46,7 @@ const Pricing = () => {
       description: 'Genuine replacement parts',
       features: [
         'OEM & compatible parts available',
-        'Manufacturer warranty included',
+        'Parts options explained clearly',
         'Competitive pricing',
         'Local parts sourcing when possible',
         'Transparent parts pricing'

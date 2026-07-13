@@ -3,16 +3,12 @@ import { Phone, Mail, MapPin } from 'lucide-react';
 
 const Footer = () => {
   const serviceAreas = [
-    'Marina del Rey',
-    'Playa Vista',
-    'Beverly Hills',
-    'Brentwood',
-    'Pacific Palisades',
-    'Culver City',
-    'Santa Monica',
-    'Venice',
-    'Long Beach',
-    'El Segundo'
+    'Bell Canyon',
+    'Burbank',
+    'Calabasas',
+    'Porter Ranch',
+    'San Fernando Valley',
+    'San Fernando'
   ];
 
   return (
@@ -70,7 +66,7 @@ const Footer = () => {
                   {area}
                 </div>
               ))}
-              <Link to="/areas" className="text-sm text-primary hover:underline">
+              <Link to="/contact" className="text-sm text-primary hover:underline">
                 View All Areas →
               </Link>
             </div>
@@ -80,16 +76,16 @@ const Footer = () => {
           <div>
             <h4 className="font-display font-semibold text-lg mb-4">Our Services</h4>
             <nav className="space-y-2 text-sm">
-              <Link to="/services/refrigerator" className="block hover:text-primary transition-colors">
+              <Link to="/services" className="block hover:text-primary transition-colors">
                 Refrigerator Repair
               </Link>
-              <Link to="/services/washer" className="block hover:text-primary transition-colors">
+              <Link to="/services" className="block hover:text-primary transition-colors">
                 Washer Repair
               </Link>
-              <Link to="/services/dryer" className="block hover:text-primary transition-colors">
+              <Link to="/services" className="block hover:text-primary transition-colors">
                 Dryer Repair
               </Link>
-              <Link to="/services/dishwasher" className="block hover:text-primary transition-colors">
+              <Link to="/services" className="block hover:text-primary transition-colors">
                 Dishwasher Repair
               </Link>
               <Link to="/services" className="text-primary hover:underline">
@@ -100,7 +96,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-white/20 mt-8 pt-8 text-center text-sm text-white/80">
-          <p>&copy; {new Date().getFullYear()} AllSet Appliance. All rights reserved. Licensed & Insured.</p>
+          <p>&copy; {new Date().getFullYear()} AllSet Appliance. All rights reserved. Licensed.</p>
         </div>
       </div>
     </footer>

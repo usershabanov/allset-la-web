@@ -18,8 +18,8 @@ const About = () => {
   const credentials = [
     {
       icon: Shield,
-      title: 'Licensed & Insured',
-      description: 'Fully licensed appliance repair business with comprehensive insurance coverage for your protection.'
+      title: 'Licensed Service',
+      description: 'Licensed local appliance repair service focused on clear communication and dependable work.'
     },
     {
       icon: Award,
@@ -46,16 +46,16 @@ const About = () => {
     },
     {
       icon: ThumbsUp,
-      title: 'Quality Guarantee',
-      description: 'All our work is backed by a comprehensive warranty on both parts and labor.'
+      title: 'Careful Work',
+      description: 'We focus on clear diagnostics, honest recommendations, and dependable repair work.'
     }
   ];
 
   const stats = [
-    { number: '1000+', label: 'Happy Customers' },
-    { number: '5+', label: 'Years Experience' },
-    { number: '10', label: 'Service Areas' },
-    { number: '4.9', label: 'Average Rating' }
+    { number: '6', label: 'Current Service Areas' },
+    { number: '8+', label: 'Major Brands' },
+    { number: '7', label: 'Days Available' },
+    { number: '1', label: 'Local Business Focus' }
   ];
 
   return (
@@ -68,8 +68,7 @@ const About = () => {
               About AllSet Appliance
             </h1>
             <p className="text-xl mb-8 text-white/90">
-              Your trusted local appliance repair experts serving Los Angeles with 
-              professional, reliable, and affordable service since 2019.
+              Licensed local appliance repair for Los Angeles and the Valley with a focus on clear service and practical scheduling.
             </p>
           </div>
         </div>
@@ -92,13 +91,12 @@ const About = () => {
                   </p>
                   <p>
                     As a locally-owned business, we understand the frustration of dealing 
-                    with broken appliances. That's why we've built our reputation on same-day 
-                    service, upfront pricing, and expert repairs that last.
+                    with broken appliances. That's why we focus on same-day availability when scheduling allows,
+                    upfront pricing, and practical service.
                   </p>
                   <p>
-                    Our team of certified technicians has the experience and tools to diagnose 
-                    and repair all major appliance brands quickly and efficiently. We take 
-                    pride in our work and stand behind every repair with our comprehensive warranty.
+                    We work on major household appliance brands and focus on diagnosing problems clearly,
+                    explaining the next step, and helping homeowners get back to normal as quickly as possible.
                   </p>
                 </div>
               </div>
@@ -215,16 +213,16 @@ const About = () => {
         </div>
       </section>
 
-      {/* Warranty Policy */}
+      {/* Service Approach */}
       <section className="py-16 bg-orange-light/50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8">
               <h2 className="font-display font-bold text-3xl mb-4">
-                Our Warranty Policy
+                How We Handle Service Requests
               </h2>
               <p className="text-xl text-muted-foreground">
-                We stand behind our work with comprehensive warranty coverage
+                Clear communication and practical scheduling from first contact to completed repair
               </p>
             </div>
 
@@ -234,32 +232,30 @@ const About = () => {
                   <div>
                     <h3 className="font-display font-semibold text-xl mb-4 flex items-center gap-2">
                       <CheckCircle className="h-6 w-6 text-primary" />
-                      Parts Warranty
+                      Clear Diagnosis
                     </h3>
                     <p className="text-muted-foreground mb-4">
-                      All replacement parts are covered by manufacturer warranty, 
-                      typically ranging from 90 days to 1 year depending on the part.
+                      We start by understanding the problem, checking the appliance, and explaining the next step in plain language.
                     </p>
                   </div>
                   
                   <div>
                     <h3 className="font-display font-semibold text-xl mb-4 flex items-center gap-2">
                       <CheckCircle className="h-6 w-6 text-primary" />
-                      Labor Warranty
+                      Practical Scheduling
                     </h3>
                     <p className="text-muted-foreground mb-4">
-                      Our workmanship is guaranteed for 90 days. If the same issue 
-                      occurs due to our repair, we'll fix it at no additional charge.
+                      Same-day availability may be possible when scheduling allows, and we keep the contact process simple for homeowners.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-t pt-6 mt-6 text-center">
                   <Badge variant="secondary" className="text-lg px-4 py-2">
-                    Licensed & Insured Business
+                    Licensed Local Business
                   </Badge>
                   <p className="text-sm text-muted-foreground mt-2">
-                    Your protection and satisfaction are our top priorities
+                    Service focused on Los Angeles and the nearby Valley areas you listed
                   </p>
                 </div>
               </CardContent>
@@ -276,8 +272,7 @@ const About = () => {
               Ready to Experience the AllSet Difference?
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Join thousands of satisfied customers who trust AllSet Appliance 
-              for all their repair needs.
+              Contact AllSet Appliance for practical local service, straightforward scheduling, and appliance help across Los Angeles and the Valley.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

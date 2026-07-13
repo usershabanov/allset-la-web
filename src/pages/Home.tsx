@@ -33,7 +33,7 @@ const Home = () => {
     {
       icon: WashingMachine,
       name: 'Washer',
-      description: 'From drain issues to no-spin, we fix it right the first time and back it with a solid warranty.',
+      description: 'From drain issues to no-spin, we diagnose the problem clearly and help get your washer running again.',
       slug: 'washer'
     },
     {
@@ -75,37 +75,23 @@ const Home = () => {
   ];
 
   const serviceAreas = [
-    'Marina del Rey',
-    'Playa Vista', 
-    'Beverly Hills',
-    'Brentwood',
-    'Pacific Palisades',
-    'Culver City',
-    'Santa Monica',
-    'Venice',
-    'Long Beach',
-    'El Segundo'
+    'Bell Canyon',
+    'Burbank',
+    'Calabasas',
+    'Porter Ranch',
+    'San Fernando',
+    'San Fernando Valley'
   ];
 
-  const testimonials = [
-    {
-      name: 'Sarah Johnson',
-      location: 'Santa Monica',
-      rating: 5,
-      text: 'My refrigerator stopped cooling on a Saturday morning. AllSet had a technician at my house the same day! Professional, honest pricing, and fixed it perfectly.'
-    },
-    {
-      name: 'Mike Chen',
-      location: 'Beverly Hills',
-      rating: 5,
-      text: 'Washer was leaking everywhere. They diagnosed the issue quickly, explained everything clearly, and the repair has held up perfectly for 6 months now.'
-    },
-    {
-      name: 'Elena Rodriguez',
-      location: 'Culver City',
-      rating: 5,
-      text: 'Excellent service! Dishwasher wasn\'t draining and they had it working like new in under an hour. Fair pricing and very professional technician.'
-    }
+  const majorBrands = [
+    'Samsung',
+    'LG',
+    'Whirlpool',
+    'GE',
+    'Frigidaire',
+    'Bosch',
+    'KitchenAid',
+    'Maytag'
   ];
 
   const faqs = [
@@ -143,7 +129,7 @@ const Home = () => {
               Fast, Reliable Appliance Repair in Los Angeles
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-white/90 text-balance">
-              Same-day availability, upfront pricing, and a warranty on every repair.
+              Licensed local appliance repair with same-day availability when scheduling allows.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
@@ -169,7 +155,7 @@ const Home = () => {
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               <div className="flex items-center gap-2">
                 <CheckCircle className="h-5 w-5 text-primary" />
-                <span>Licensed & Insured</span>
+                <span>Licensed</span>
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="h-5 w-5 text-primary" />
@@ -177,7 +163,7 @@ const Home = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Shield className="h-5 w-5 text-primary" />
-                <span>Warranty Included</span>
+                <span>Fast Response</span>
               </div>
             </div>
           </div>
@@ -190,16 +176,16 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="space-y-4">
               <Shield className="h-12 w-12 text-primary mx-auto" />
-              <h3 className="font-display font-semibold text-xl">Licensed & Insured</h3>
+              <h3 className="font-display font-semibold text-xl">Licensed Service</h3>
               <p className="text-muted-foreground">
-                Fully licensed and insured for your protection and peace of mind.
+                Clear, professional service for local homeowners across Los Angeles and the Valley.
               </p>
             </div>
             <div className="space-y-4">
               <Users className="h-12 w-12 text-primary mx-auto" />
-              <h3 className="font-display font-semibold text-xl">1000+ Happy Customers</h3>
+              <h3 className="font-display font-semibold text-xl">Residential Appliance Repair</h3>
               <p className="text-muted-foreground">
-                Trusted by families across Los Angeles with excellent reviews.
+                Repair, installation, and maintenance for the appliances you use every day.
               </p>
             </div>
             <div className="space-y-4">
@@ -239,7 +225,7 @@ const Home = () => {
                       {service.description}
                     </CardDescription>
                     <Button variant="outline" className="w-full" asChild>
-                      <Link to={`/services/${service.slug}`}>
+                      <Link to="/services">
                         Learn More
                         <ChevronRight className="h-4 w-4 ml-2" />
                       </Link>
@@ -260,7 +246,7 @@ const Home = () => {
               Serving Greater Los Angeles
             </h2>
             <p className="text-xl text-muted-foreground">
-              Fast, reliable appliance repair across LA's westside communities
+              Service focused on the Valley and nearby areas you provided
             </p>
           </div>
 
@@ -279,7 +265,7 @@ const Home = () => {
 
           <div className="text-center">
             <Button variant="outline" asChild>
-              <Link to="/areas">
+              <Link to="/contact">
                 View All Service Areas
                 <ChevronRight className="h-4 w-4 ml-2" />
               </Link>
@@ -288,34 +274,23 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Brands */}
       <section className="py-16 bg-secondary/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
-              What Our Customers Say
+              Brands We Work With
             </h2>
             <p className="text-xl text-muted-foreground">
-              Real reviews from satisfied customers across Los Angeles
+              We service major household appliance brands used across Los Angeles homes.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="card-hover">
-                <CardHeader>
-                  <div className="flex items-center gap-1 mb-2">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <CardTitle className="text-lg">{testimonial.name}</CardTitle>
-                  <CardDescription>{testimonial.location}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground italic">"{testimonial.text}"</p>
-                </CardContent>
-              </Card>
+          <div className="flex flex-wrap justify-center gap-3">
+            {majorBrands.map((brand) => (
+              <Badge key={brand} variant="secondary" className="px-4 py-2 text-sm">
+                {brand}
+              </Badge>
             ))}
           </div>
         </div>

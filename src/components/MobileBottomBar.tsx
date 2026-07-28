@@ -5,16 +5,14 @@ const MobileBottomBar = () => {
   return (
     <div className="md:hidden fixed bottom-0 left-0 right-0 border-t border-white/10 bg-slate-950/95 backdrop-blur-md z-40">
       <div className="grid grid-cols-3 gap-1">
-        {/* Call Button */}
         <a
           href="tel:818-571-4030"
           className="flex flex-col items-center justify-center py-3 px-2 bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
         >
           <Phone className="h-5 w-5 mb-1" />
-          <span className="text-xs font-medium">Call</span>
+          <span className="text-xs font-medium">Free Call</span>
         </a>
 
-        {/* Email Button */}
         <a
           href="mailto:allsetappliance.business@gmail.com"
           className="flex flex-col items-center justify-center py-3 px-2 text-white/85 hover:bg-white/5 transition-colors"
@@ -23,7 +21,6 @@ const MobileBottomBar = () => {
           <span className="text-xs font-medium">Email</span>
         </a>
 
-        {/* Book Button */}
         <Link
           to="/contact"
           className="flex flex-col items-center justify-center py-3 px-2 bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"

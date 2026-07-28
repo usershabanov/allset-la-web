@@ -8,7 +8,7 @@ const Contact = () => {
       icon: Phone,
       title: 'Call Us',
       details: '818-571-4030',
-      subtitle: 'Available for emergency repairs',
+      subtitle: 'Free phone consultation and urgent scheduling',
       link: 'tel:818-571-4030'
     },
     {
@@ -36,24 +36,22 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="blizzard-hero text-white py-20">
+      <section className="blizzard-hero py-20 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="hero-readable-title font-display font-bold text-4xl md:text-5xl mb-6">
+            <h1 className="hero-readable-title font-display text-4xl font-bold md:text-5xl mb-6">
               Contact AllSet Appliance
             </h1>
             <p className="hero-readable-text text-xl mb-8 text-white/95">
-              Ready to schedule your repair? Get in touch with our friendly team today.
+              Ready to schedule your repair? Start with a free phone consultation or send your request online.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Contact Information */}
       <section className="py-16 blizzard-surface">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <div className="grid grid-cols-1 gap-6 mb-16 md:grid-cols-2 lg:grid-cols-4">
             {contactInfo.map((info, index) => {
               const IconComponent = info.icon;
               const content = (
@@ -87,7 +85,6 @@ const Contact = () => {
             })}
           </div>
 
-          {/* Emergency Notice */}
           <div className="max-w-3xl mx-auto mb-16">
             <Card className="border-primary/20 blizzard-surface-alt">
               <CardContent className="p-6 text-center">
@@ -95,15 +92,15 @@ const Contact = () => {
                   Emergency Appliance Repair
                 </h3>
                 <p className="text-muted-foreground mb-4">
-                  Appliance emergency? Don't wait! We offer same-day service for urgent repairs 
-                  across Los Angeles. Call us now and we'll dispatch a technician to your location.
+                  Appliance emergency? Don't wait. Call now for a free phone consultation and fast scheduling
+                  across Los Angeles service areas.
                 </p>
-                <a 
+                <a
                   href="tel:818-571-4030"
                   className="inline-flex items-center gap-2 text-primary font-semibold hover:underline"
                 >
                   <Phone className="h-4 w-4" />
-                  Call 818-571-4030 Now
+                  Free Call: 818-571-4030
                 </a>
               </CardContent>
             </Card>
@@ -111,7 +108,6 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Booking Form Section */}
       <section className="py-16 blizzard-surface-alt">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -120,23 +116,23 @@ const Contact = () => {
                 Schedule Your Repair
               </h2>
               <p className="text-xl text-muted-foreground">
-                Fill out the form below and we'll contact you within 1 hour to confirm your appointment
+                Fill out the form below and we'll contact you within 1 hour to confirm your appointment,
+                or call now for a free phone consultation first.
               </p>
             </div>
-            
+
             <BookingForm />
           </div>
         </div>
       </section>
 
-      {/* Service Areas Quick Reference */}
       <section id="service-areas" className="py-16 blizzard-surface">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="font-display font-bold text-3xl mb-6">
               We Serve These Areas
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 text-sm">
+            <div className="grid grid-cols-2 gap-4 text-sm md:grid-cols-3 lg:grid-cols-5">
               {[
                 'Bell Canyon',
                 'Burbank',

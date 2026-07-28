@@ -115,8 +115,8 @@ const Home = () => {
       answer: 'We service most major appliance brands including Samsung, LG, Whirlpool, GE, KitchenAid, Maytag, Bosch, and many others.'
     },
     {
-      question: 'Do you provide warranties on repairs?',
-      answer: 'Absolutely! We provide warranties on both parts and labor to ensure your peace of mind.'
+      question: 'Do you offer a free phone consultation?',
+      answer: 'Yes. Call 818-571-4030 and we can discuss the symptoms, likely next steps, and scheduling before you book online.'
     }
   ];
 
@@ -132,11 +132,19 @@ const Home = () => {
         
         <div className="container mx-auto px-4 relative z-20">
           <div className="max-w-4xl mx-auto text-center">
+            <div className="mb-5 flex flex-wrap justify-center gap-3">
+              <Badge className="border border-white/15 bg-white/10 px-4 py-2 text-sm text-white hover:bg-white/15">
+                Free Phone Consultation
+              </Badge>
+              <Badge className="border border-white/15 bg-white/10 px-4 py-2 text-sm text-white hover:bg-white/15">
+                Same-Day Availability
+              </Badge>
+            </div>
             <h1 className="hero-readable-title font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-6 text-balance">
               Fast, Reliable Appliance Repair in Los Angeles
             </h1>
             <p className="hero-readable-text text-xl md:text-2xl mb-8 text-white/95 text-balance">
-              Licensed local appliance repair with same-day availability when scheduling allows.
+              Licensed local appliance repair with same-day availability when scheduling allows and a free phone consultation before you book.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
@@ -145,7 +153,7 @@ const Home = () => {
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 text-lg"
                 asChild
               >
-                <a href="#booking-form">Book Now</a>
+                <a href="#booking-form">Book Service</a>
               </Button>
               <Button 
                 size="lg" 
@@ -154,7 +162,7 @@ const Home = () => {
               >
                 <a href="tel:818-571-4030" className="flex items-center gap-2">
                   <Phone className="h-5 w-5" />
-                  Call 818-571-4030
+                  Free Call 818-571-4030
                 </a>
               </Button>
             </div>
@@ -197,9 +205,9 @@ const Home = () => {
             </div>
             <div className="space-y-4">
               <DollarSign className="h-12 w-12 text-primary mx-auto" />
-              <h3 className="font-display font-semibold text-xl">Upfront Pricing</h3>
+              <h3 className="font-display font-semibold text-xl">Free Phone Consultation</h3>
               <p className="text-muted-foreground">
-                No surprises—transparent pricing before we start any work.
+                Start with a quick call to explain the issue, ask questions, and decide the best next step.
               </p>
             </div>
           </div>
@@ -350,7 +358,7 @@ const Home = () => {
                 Schedule Your Repair Today
               </h2>
               <p className="text-xl text-muted-foreground">
-                Fill out the form below and we'll contact you to confirm your appointment
+                Fill out the form below and we'll contact you to confirm your appointment — or call first for a free phone consultation.
               </p>
             </div>
             
@@ -367,8 +375,7 @@ const Home = () => {
               Need Immediate Appliance Repair?
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Don't wait—call now for same-day service across Los Angeles. 
-              Our expert technicians are standing by to help.
+              Don't wait—call now for a free phone consultation and same-day availability across Los Angeles when scheduling allows.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -379,7 +386,7 @@ const Home = () => {
               >
                 <a href="tel:818-571-4030" className="flex items-center gap-2">
                   <Phone className="h-5 w-5" />
-                  Call 818-571-4030
+                  Free Call 818-571-4030
                 </a>
               </Button>
               <Button 

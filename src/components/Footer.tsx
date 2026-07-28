@@ -19,12 +19,11 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="text-white" style={{ background: "linear-gradient(180deg, rgba(7,17,31,0.98) 0%, rgba(10,25,46,0.98) 48%, rgba(12,33,60,1) 100%)" }}>
+    <footer className="text-white" style={{ background: 'linear-gradient(180deg, rgba(7,17,31,0.98) 0%, rgba(10,25,46,0.98) 48%, rgba(12,33,60,1) 100%)' }}>
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <h3 className="font-display font-bold text-xl mb-4">AllSet Appliance</h3>
+            <h3 className="mb-4 font-display text-xl font-bold">AllSet Appliance</h3>
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-primary" />
@@ -39,15 +38,15 @@ const Footer = () => {
                 </a>
               </div>
               <div className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-primary mt-0.5" />
+                <MapPin className="mt-0.5 h-5 w-5 text-primary" />
                 <span>Serving the Valley, Westside Los Angeles, and nearby coastal communities</span>
               </div>
+              <p className="text-sm text-white/75">Free phone consultation available before you book.</p>
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h4 className="font-display font-semibold text-lg mb-4">Quick Links</h4>
+            <h4 className="mb-4 font-display text-lg font-semibold">Quick Links</h4>
             <nav className="space-y-2">
               <Link to="/services" className="block hover:text-primary transition-colors">
                 Services
@@ -64,9 +63,8 @@ const Footer = () => {
             </nav>
           </div>
 
-          {/* Service Areas */}
           <div>
-            <h4 className="font-display font-semibold text-lg mb-4">Service Areas</h4>
+            <h4 className="mb-4 font-display text-lg font-semibold">Service Areas</h4>
             <div className="space-y-1">
               {serviceAreas.slice(0, 6).map((area) => (
                 <div key={area} className="text-sm text-white/80">
@@ -79,9 +77,8 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Services */}
           <div>
-            <h4 className="font-display font-semibold text-lg mb-4">Our Services</h4>
+            <h4 className="mb-4 font-display text-lg font-semibold">Our Services</h4>
             <nav className="space-y-2 text-sm">
               <Link to="/services" className="block hover:text-primary transition-colors">
                 Refrigerator Repair
@@ -102,7 +99,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-8 pt-8 text-center text-sm text-white/75">
+        <div className="mt-8 border-t border-white/10 pt-8 text-center text-sm text-white/75">
           <p>&copy; {new Date().getFullYear()} AllSet Appliance. All rights reserved. Licensed.</p>
         </div>
       </div>

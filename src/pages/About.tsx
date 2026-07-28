@@ -13,6 +13,7 @@ import {
   Wrench
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import ozzyJobPhoto from '/about-ozzy-job.jpg';
 
 const About = () => {
   const credentials = [
@@ -52,7 +53,7 @@ const About = () => {
   ];
 
   const stats = [
-    { number: '6', label: 'Current Service Areas' },
+    { number: '12+', label: 'Current Service Areas' },
     { number: '8+', label: 'Major Brands' },
     { number: '7', label: 'Days Available' },
     { number: '1', label: 'Local Business Focus' }
@@ -61,13 +62,13 @@ const About = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-brand-blue to-accent text-white py-20">
+      <section className="blizzard-hero text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="font-display font-bold text-4xl md:text-5xl mb-6">
+            <h1 className="hero-readable-title font-display font-bold text-4xl md:text-5xl mb-6">
               About AllSet Appliance
             </h1>
-            <p className="text-xl mb-8 text-white/90">
+            <p className="hero-readable-text text-xl mb-8 text-white/95">
               Licensed local appliance repair for Los Angeles and the Valley with a focus on clear service and practical scheduling.
             </p>
           </div>
@@ -75,7 +76,7 @@ const About = () => {
       </section>
 
       {/* Our Story */}
-      <section className="py-16 bg-white">
+      <section className="py-16 blizzard-surface">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -133,16 +134,60 @@ const About = () => {
         </div>
       </section>
 
+      {/* In-Demand Service Story */}
+      <section className="py-16 blizzard-surface-alt">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              <div className="order-2 lg:order-1">
+                <Badge variant="secondary" className="mb-4 text-sm px-4 py-2">
+                  In Demand Across Los Angeles
+                </Badge>
+                <h2 className="font-display font-bold text-3xl md:text-4xl mb-5">
+                  Trusted by homeowners who expect real results
+                </h2>
+                <div className="space-y-4 text-muted-foreground text-lg">
+                  <p>
+                    Our owner has provided appliance service in high-expectation homes across Los Angeles, including a visit to Ozzy Osbourne&apos;s household.
+                  </p>
+                  <p>
+                    That kind of referral trust is how AllSet Appliance has built real demand across Los Angeles: people call us when they want fast response, respectful service, and work done right.
+                  </p>
+                  <p>
+                    Whether it is a well-known household or a busy family in the Valley, we bring the same level of care, privacy, and attention to every service call.
+                  </p>
+                </div>
+              </div>
+
+              <div className="order-1 lg:order-2">
+                <Card className="overflow-hidden">
+                  <img
+                    src={ozzyJobPhoto}
+                    alt="AllSet Appliance owner on a service visit outside the Osbourne residence"
+                    className="h-full w-full object-cover"
+                  />
+                  <CardContent className="p-5">
+                    <p className="text-sm text-muted-foreground">
+                      A real service-day photo from a visit tied to the Osbourne household—one example of why AllSet Appliance continues to earn trust and stay in demand.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Stats */}
-      <section className="py-16 bg-primary text-primary-foreground">
+      <section className="py-16 blizzard-surface text-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl md:text-5xl font-bold mb-2">
+              <div key={index} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-8 text-center shadow-[0_18px_48px_rgba(2,8,20,0.28)] backdrop-blur-sm">
+                <div className="text-4xl md:text-5xl font-bold mb-2 text-primary">
                   {stat.number}
                 </div>
-                <div className="text-lg opacity-90">{stat.label}</div>
+                <div className="text-lg text-white/80">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -150,7 +195,7 @@ const About = () => {
       </section>
 
       {/* Credentials */}
-      <section className="py-16 bg-secondary/30">
+      <section className="py-16 blizzard-surface-alt">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
@@ -182,7 +227,7 @@ const About = () => {
       </section>
 
       {/* Our Values */}
-      <section className="py-16 bg-white">
+      <section className="py-16 blizzard-surface">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
@@ -214,7 +259,7 @@ const About = () => {
       </section>
 
       {/* Service Approach */}
-      <section className="py-16 bg-orange-light/50">
+      <section className="py-16 blizzard-surface-alt">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8">
@@ -255,7 +300,7 @@ const About = () => {
                     Licensed Local Business
                   </Badge>
                   <p className="text-sm text-muted-foreground mt-2">
-                    Service focused on Los Angeles and the nearby Valley areas you listed
+                    Service focused on Los Angeles, the Valley, and Westside coastal communities
                   </p>
                 </div>
               </CardContent>
@@ -265,7 +310,7 @@ const About = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-brand-blue text-white">
+      <section className="py-16 text-primary-foreground" style={{ background: "linear-gradient(135deg, rgba(10,25,46,0.95) 0%, rgba(24,69,118,0.98) 58%, rgba(243,127,37,0.9) 100%)" }}>
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
@@ -274,24 +319,25 @@ const About = () => {
             <p className="text-xl mb-8 opacity-90">
               Contact AllSet Appliance for practical local service, straightforward scheduling, and appliance help across Los Angeles and the Valley.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-                asChild
-              >
-                <Link to="/contact">Schedule Service</Link>
-              </Button>
-              <Button 
-                size="lg" 
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-semibold"
                 asChild
               >
                 <a href="tel:818-571-4030" className="flex items-center gap-2">
                   <Phone className="h-5 w-5" />
                   Call 818-571-4030
                 </a>
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="border-2 border-white text-white hover:blizzard-surface hover:text-primary px-8 py-4 text-lg font-semibold"
+                asChild
+              >
+                <Link to="/contact">Schedule Service</Link>
               </Button>
             </div>
           </div>

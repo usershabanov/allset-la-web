@@ -77,13 +77,13 @@ const Services = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-brand-blue to-accent text-white py-20">
+      <section className="blizzard-hero text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="font-display font-bold text-4xl md:text-5xl mb-6">
+            <h1 className="hero-readable-title font-display font-bold text-4xl md:text-5xl mb-6">
               Professional Appliance Repair Services
             </h1>
-            <p className="text-xl mb-8 text-white/90">
+            <p className="hero-readable-text text-xl mb-8 text-white/95">
               Expert technicians, same-day service, and transparent pricing for all major appliances
             </p>
             
@@ -111,7 +111,7 @@ const Services = () => {
       </section>
 
       {/* Service Overview */}
-      <section className="py-16 bg-white">
+      <section className="py-16 blizzard-surface">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
@@ -189,7 +189,7 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary text-primary-foreground">
+      <section className="py-16 text-primary-foreground" style={{ background: "linear-gradient(135deg, rgba(10,25,46,0.95) 0%, rgba(24,69,118,0.98) 58%, rgba(243,127,37,0.9) 100%)" }}>
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
@@ -199,25 +199,25 @@ const Services = () => {
               Don't let a broken appliance disrupt your day. Our expert technicians 
               are ready to diagnose and fix your appliance quickly and affordably.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
-                variant="secondary"
-                className="bg-white text-primary hover:bg-white/90 font-semibold"
-                asChild
-              >
-                <Link to="/contact">Book Online</Link>
-              </Button>
-              <Button 
-                size="lg" 
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-semibold"
                 asChild
               >
                 <a href="tel:818-571-4030" className="flex items-center gap-2">
                   <Phone className="h-5 w-5" />
                   Call Now
                 </a>
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="border-2 border-white text-white hover:blizzard-surface hover:text-primary px-8 py-4 text-lg font-semibold"
+                asChild
+              >
+                <Link to="/contact">Book Online</Link>
               </Button>
             </div>
           </div>

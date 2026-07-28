@@ -21,8 +21,8 @@ const Contact = () => {
     {
       icon: MapPin,
       title: 'Service Areas',
-      details: 'Los Angeles & the Valley',
-      subtitle: 'Bell Canyon, Burbank, Calabasas, Porter Ranch, San Fernando',
+      details: 'Los Angeles, the Valley & the Westside',
+      subtitle: 'Bell Canyon, Burbank, Calabasas, Marina del Rey, Venice, Santa Monica, Westwood, Culver City, Pacific Palisades',
       link: '/contact#service-areas'
     },
     {
@@ -37,13 +37,13 @@ const Contact = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-brand-blue to-accent text-white py-20">
+      <section className="blizzard-hero text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="font-display font-bold text-4xl md:text-5xl mb-6">
+            <h1 className="hero-readable-title font-display font-bold text-4xl md:text-5xl mb-6">
               Contact AllSet Appliance
             </h1>
-            <p className="text-xl mb-8 text-white/90">
+            <p className="hero-readable-text text-xl mb-8 text-white/95">
               Ready to schedule your repair? Get in touch with our friendly team today.
             </p>
           </div>
@@ -51,7 +51,7 @@ const Contact = () => {
       </section>
 
       {/* Contact Information */}
-      <section className="py-16 bg-white">
+      <section className="py-16 blizzard-surface">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {contactInfo.map((info, index) => {
@@ -89,7 +89,7 @@ const Contact = () => {
 
           {/* Emergency Notice */}
           <div className="max-w-3xl mx-auto mb-16">
-            <Card className="border-primary/20 bg-orange-light/50">
+            <Card className="border-primary/20 blizzard-surface-alt">
               <CardContent className="p-6 text-center">
                 <h3 className="font-display font-semibold text-xl mb-2 text-primary">
                   Emergency Appliance Repair
@@ -112,7 +112,7 @@ const Contact = () => {
       </section>
 
       {/* Booking Form Section */}
-      <section className="py-16 bg-secondary/30">
+      <section className="py-16 blizzard-surface-alt">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
@@ -130,7 +130,7 @@ const Contact = () => {
       </section>
 
       {/* Service Areas Quick Reference */}
-      <section id="service-areas" className="py-16 bg-white">
+      <section id="service-areas" className="py-16 blizzard-surface">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="font-display font-bold text-3xl mb-6">
@@ -141,6 +141,13 @@ const Contact = () => {
                 'Bell Canyon',
                 'Burbank',
                 'Calabasas',
+                'Westside Los Angeles',
+                'Marina del Rey',
+                'Venice',
+                'Santa Monica',
+                'Westwood',
+                'Culver City',
+                'Pacific Palisades',
                 'Porter Ranch',
                 'San Fernando Valley',
                 'San Fernando'

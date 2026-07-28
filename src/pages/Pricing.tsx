@@ -67,13 +67,13 @@ const Pricing = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-brand-blue to-accent text-white py-20">
+      <section className="blizzard-hero text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="font-display font-bold text-4xl md:text-5xl mb-6">
+            <h1 className="hero-readable-title font-display font-bold text-4xl md:text-5xl mb-6">
               Transparent, Honest Pricing
             </h1>
-            <p className="text-xl mb-8 text-white/90">
+            <p className="hero-readable-text text-xl mb-8 text-white/95">
               No hidden fees, no surprises. Know exactly what you're paying before we start any work.
             </p>
             
@@ -101,7 +101,7 @@ const Pricing = () => {
       </section>
 
       {/* Pricing Structure */}
-      <section className="py-16 bg-white">
+      <section className="py-16 blizzard-surface">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
@@ -117,7 +117,7 @@ const Pricing = () => {
               <Card key={index} className={`card-hover ${index === 1 ? 'border-primary shadow-lg' : ''}`}>
                 {index === 1 && (
                   <div className="bg-primary text-primary-foreground text-center py-2 rounded-t-lg">
-                    <Badge variant="secondary" className="bg-white text-primary">
+                    <Badge variant="secondary" className="blizzard-surface text-primary">
                       Most Common
                     </Badge>
                   </div>
@@ -148,7 +148,7 @@ const Pricing = () => {
           </div>
 
           {/* Pricing Promise */}
-          <Card className="border-primary/20 bg-orange-light/50">
+          <Card className="border-primary/20 blizzard-surface-alt">
             <CardContent className="p-8 text-center">
               <Shield className="h-12 w-12 text-primary mx-auto mb-4" />
               <h3 className="font-display font-semibold text-2xl mb-4">Our Pricing Promise</h3>
@@ -162,7 +162,7 @@ const Pricing = () => {
       </section>
 
       {/* Common Repair Estimates */}
-      <section className="py-16 bg-secondary/30">
+      <section className="py-16 blizzard-surface-alt">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
@@ -212,7 +212,7 @@ const Pricing = () => {
       </section>
 
       {/* Why Our Pricing is Fair */}
-      <section className="py-16 bg-white">
+      <section className="py-16 blizzard-surface">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
@@ -254,7 +254,7 @@ const Pricing = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary text-primary-foreground">
+      <section className="py-16 text-primary-foreground" style={{ background: "linear-gradient(135deg, rgba(10,25,46,0.95) 0%, rgba(24,69,118,0.98) 58%, rgba(243,127,37,0.9) 100%)" }}>
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
@@ -264,25 +264,25 @@ const Pricing = () => {
               Get your appliance diagnosed and repaired with transparent pricing and no surprises. 
               Schedule your service call today.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
-                variant="secondary"
-                className="bg-white text-primary hover:bg-white/90 font-semibold"
-                asChild
-              >
-                <Link to="/contact">Schedule Service</Link>
-              </Button>
-              <Button 
-                size="lg" 
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-semibold"
                 asChild
               >
                 <a href="tel:818-571-4030" className="flex items-center gap-2">
                   <Phone className="h-5 w-5" />
                   Call for Quote
                 </a>
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="border-2 border-white text-white hover:blizzard-surface hover:text-primary px-8 py-4 text-lg font-semibold"
+                asChild
+              >
+                <Link to="/contact">Schedule Service</Link>
               </Button>
             </div>
           </div>

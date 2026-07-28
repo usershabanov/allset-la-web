@@ -6,13 +6,20 @@ const Footer = () => {
     'Bell Canyon',
     'Burbank',
     'Calabasas',
+    'Westside Los Angeles',
+    'Marina del Rey',
+    'Venice',
+    'Santa Monica',
+    'Westwood',
+    'Culver City',
+    'Pacific Palisades',
     'Porter Ranch',
     'San Fernando Valley',
     'San Fernando'
   ];
 
   return (
-    <footer className="bg-brand-blue text-white">
+    <footer className="text-white" style={{ background: "linear-gradient(180deg, rgba(7,17,31,0.98) 0%, rgba(10,25,46,0.98) 48%, rgba(12,33,60,1) 100%)" }}>
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -33,7 +40,7 @@ const Footer = () => {
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-primary mt-0.5" />
-                <span>Serving Greater Los Angeles Area</span>
+                <span>Serving the Valley, Westside Los Angeles, and nearby coastal communities</span>
               </div>
             </div>
           </div>
@@ -95,7 +102,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-white/20 mt-8 pt-8 text-center text-sm text-white/80">
+        <div className="border-t border-white/10 mt-8 pt-8 text-center text-sm text-white/75">
           <p>&copy; {new Date().getFullYear()} AllSet Appliance. All rights reserved. Licensed.</p>
         </div>
       </div>

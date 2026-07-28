@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const MobileBottomBar = () => {
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-border z-40">
+    <div className="md:hidden fixed bottom-0 left-0 right-0 border-t border-white/10 bg-slate-950/95 backdrop-blur-md z-40">
       <div className="grid grid-cols-3 gap-1">
         {/* Call Button */}
         <a
@@ -17,7 +17,7 @@ const MobileBottomBar = () => {
         {/* Email Button */}
         <a
           href="mailto:allsetappliance.business@gmail.com"
-          className="flex flex-col items-center justify-center py-3 px-2 text-accent hover:bg-blue-light transition-colors"
+          className="flex flex-col items-center justify-center py-3 px-2 text-white/85 hover:bg-white/5 transition-colors"
         >
           <Mail className="h-5 w-5 mb-1" />
           <span className="text-xs font-medium">Email</span>

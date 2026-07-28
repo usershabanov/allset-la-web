@@ -78,6 +78,13 @@ const Home = () => {
     'Bell Canyon',
     'Burbank',
     'Calabasas',
+    'Westside Los Angeles',
+    'Marina del Rey',
+    'Venice',
+    'Santa Monica',
+    'Westwood',
+    'Culver City',
+    'Pacific Palisades',
     'Porter Ranch',
     'San Fernando',
     'San Fernando Valley'
@@ -116,8 +123,8 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-brand-blue via-accent to-brand-blue text-white py-20 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-black/40 z-10"></div>
+      <section className="relative blizzard-hero text-white py-20 lg:py-32 overflow-hidden">
+        <div className="absolute inset-0 z-10 bg-[linear-gradient(180deg,rgba(6,12,23,0.56),rgba(8,18,35,0.72))]"></div>
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroImage})` }}
@@ -125,10 +132,10 @@ const Home = () => {
         
         <div className="container mx-auto px-4 relative z-20">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-6 text-balance">
+            <h1 className="hero-readable-title font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-6 text-balance">
               Fast, Reliable Appliance Repair in Los Angeles
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-white/90 text-balance">
+            <p className="hero-readable-text text-xl md:text-2xl mb-8 text-white/95 text-balance">
               Licensed local appliance repair with same-day availability when scheduling allows.
             </p>
             
@@ -171,7 +178,7 @@ const Home = () => {
       </section>
 
       {/* Trust Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 blizzard-surface">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="space-y-4">
@@ -200,7 +207,7 @@ const Home = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-16 bg-secondary/30">
+      <section className="py-16 blizzard-surface-alt">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
@@ -239,14 +246,14 @@ const Home = () => {
       </section>
 
       {/* Service Areas */}
-      <section className="py-16 bg-white">
+      <section className="py-16 blizzard-surface">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
               Serving Greater Los Angeles
             </h2>
             <p className="text-xl text-muted-foreground">
-              Service focused on the Valley and nearby areas you provided
+              Service focused on the Valley, Westside Los Angeles, and nearby coastal communities
             </p>
           </div>
 
@@ -275,7 +282,7 @@ const Home = () => {
       </section>
 
       {/* Brands */}
-      <section className="py-16 bg-secondary/30">
+      <section className="py-16 blizzard-surface-alt">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
@@ -297,7 +304,7 @@ const Home = () => {
       </section>
 
       {/* FAQ Preview */}
-      <section className="py-16 bg-white">
+      <section className="py-16 blizzard-surface">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
@@ -335,7 +342,7 @@ const Home = () => {
       </section>
 
       {/* Booking Form Section */}
-      <section id="booking-form" className="py-16 bg-orange-light/50">
+      <section id="booking-form" className="py-16 blizzard-surface-alt">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
@@ -353,7 +360,7 @@ const Home = () => {
       </section>
 
       {/* Final CTA Banner */}
-      <section className="py-16 bg-primary text-primary-foreground">
+      <section className="py-16 text-primary-foreground" style={{ background: "linear-gradient(135deg, rgba(10,25,46,0.95) 0%, rgba(24,69,118,0.98) 58%, rgba(243,127,37,0.9) 100%)" }}>
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
@@ -378,7 +385,7 @@ const Home = () => {
               <Button 
                 size="lg" 
                 variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-lg font-semibold"
+                className="border-2 border-white text-white hover:blizzard-surface hover:text-primary px-8 py-4 text-lg font-semibold"
                 asChild
               >
                 <a href="#booking-form">Book Online</a>

@@ -13,11 +13,12 @@ import { useToast } from '@/hooks/use-toast';
 const bookingSchema = z.object({
   name: z.string().trim().min(1, 'Name is required').max(100, 'Name too long'),
   phone: z.string().trim().min(10, 'Valid phone number required'),
-  email: z.union([z.literal(''), z.string().trim().email('Valid email required')]).optional(),
   applianceType: z.string().optional(),
-  brand: z.string().optional(),
-  preferredTime: z.string().optional(),
-  problem: z.string().trim().min(10, 'Please describe the problem (minimum 10 characters)').max(1000, 'Description too long'),
+  problem: z
+    .string()
+    .trim()
+    .min(10, 'Please describe the problem (minimum 10 characters)')
+    .max(1000, 'Description too long'),
   honeypot: z.string().max(0, 'Spam detected'),
 });
 
@@ -35,16 +36,16 @@ const appliances = [
   'Wine Cooler',
 ];
 
-const timeSlots = [
-  'ASAP',
-  'Morning',
-  'Afternoon',
-  'Evening',
-  'Flexible',
-];
-
 const inputClassName =
   'border-white/10 bg-slate-950/55 text-foreground placeholder:text-muted-foreground focus-visible:ring-primary focus-visible:ring-offset-slate-950';
+
+const defaultValues: BookingFormData = {
+  applianceType: undefined,
+  honeypot: '',
+  problem: '',
+  name: '',
+  phone: '',
+};
 
 const BookingForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -52,16 +53,7 @@ const BookingForm = () => {
 
   const form = useForm<BookingFormData>({
     resolver: zodResolver(bookingSchema),
-    defaultValues: {
-      applianceType: undefined,
-      email: '',
-      brand: '',
-      preferredTime: 'Flexible',
-      honeypot: '',
-      problem: '',
-      name: '',
-      phone: '',
-    },
+    defaultValues,
   });
 
   const onSubmit = async (data: BookingFormData) => {
@@ -94,7 +86,7 @@ const BookingForm = () => {
 
   if (isSubmitted) {
     return (
-      <div className="max-w-md mx-auto rounded-2xl border border-white/10 bg-slate-950/70 p-8 text-center shadow-lg backdrop-blur-sm">
+      <div className="mx-auto max-w-md rounded-2xl border border-white/10 bg-slate-950/70 p-8 text-center shadow-lg backdrop-blur-sm">
         <CheckCircle className="mx-auto mb-4 h-16 w-16 text-primary" />
         <h3 className="mb-2 text-xl font-display font-semibold">Thank You!</h3>
         <p className="mb-4 text-muted-foreground">
@@ -104,16 +96,7 @@ const BookingForm = () => {
         <Button
           onClick={() => {
             setIsSubmitted(false);
-            form.reset({
-              applianceType: undefined,
-              email: '',
-              brand: '',
-              preferredTime: 'Flexible',
-              honeypot: '',
-              problem: '',
-              name: '',
-              phone: '',
-            });
+            form.reset(defaultValues);
           }}
           variant="outline"
           className="border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground"
@@ -166,91 +149,34 @@ const BookingForm = () => {
             />
           </div>
 
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            <FormField
-              control={form.control}
-              name="applianceType"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Appliance</FormLabel>
-                  <Select onValueChange={field.onChange} value={field.value || undefined}>
-                    <FormControl>
-                      <SelectTrigger className={inputClassName}>
-                        <SelectValue placeholder="Optional — choose appliance" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent className="border-white/10 bg-slate-950/95 text-foreground">
-                      {appliances.map((appliance) => (
-                        <SelectItem
-                          key={appliance}
-                          value={appliance}
-                          className="focus:bg-blue-light focus:text-foreground"
-                        >
-                          {appliance}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="brand"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Brand</FormLabel>
+          <FormField
+            control={form.control}
+            name="applianceType"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Appliance</FormLabel>
+                <Select onValueChange={field.onChange} value={field.value || undefined}>
                   <FormControl>
-                    <Input className={inputClassName} placeholder="Samsung, LG, Whirlpool..." {...field} />
+                    <SelectTrigger className={inputClassName}>
+                      <SelectValue placeholder="Optional — choose appliance" />
+                    </SelectTrigger>
                   </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input className={inputClassName} placeholder="your@email.com" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="preferredTime"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Preferred time</FormLabel>
-                  <Select onValueChange={field.onChange} value={field.value || 'Flexible'}>
-                    <FormControl>
-                      <SelectTrigger className={inputClassName}>
-                        <SelectValue placeholder="Choose a time" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent className="border-white/10 bg-slate-950/95 text-foreground">
-                      {timeSlots.map((slot) => (
-                        <SelectItem key={slot} value={slot} className="focus:bg-blue-light focus:text-foreground">
-                          {slot}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
+                  <SelectContent className="border-white/10 bg-slate-950/95 text-foreground">
+                    {appliances.map((appliance) => (
+                      <SelectItem
+                        key={appliance}
+                        value={appliance}
+                        className="focus:bg-blue-light focus:text-foreground"
+                      >
+                        {appliance}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
           <FormField
             control={form.control}

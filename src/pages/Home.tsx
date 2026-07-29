@@ -20,7 +20,7 @@ import {
   Zap,
   ChefHat
 } from 'lucide-react';
-import heroImage from '@/assets/hero-appliance-repair.jpg';
+import heroImage from '@/assets/home-hero-user-image.jpg';
 
 const Home = () => {
   const services = [
@@ -124,14 +124,15 @@ const Home = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative blizzard-hero text-white py-20 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0 z-10 bg-[linear-gradient(180deg,rgba(6,12,23,0.56),rgba(8,18,35,0.72))]"></div>
+        <div className="absolute inset-0 z-10 bg-[linear-gradient(180deg,rgba(7,14,28,0.32),rgba(8,18,35,0.5))]"></div>
+        <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_center,rgba(7,17,34,0.16)_0%,rgba(7,17,34,0.08)_34%,rgba(7,17,34,0)_60%)]"></div>
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroImage})` }}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-[1.02]"
+          style={{ backgroundImage: `url(${heroImage})`, filter: 'brightness(1.08) saturate(1.02)' }}
         ></div>
         
         <div className="container mx-auto px-4 relative z-20">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-center rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(8,18,35,0.34),rgba(8,18,35,0.2))] px-5 py-8 shadow-[0_20px_60px_rgba(0,0,0,0.18)] backdrop-blur-[2px] md:px-8 lg:px-10">
             <div className="mb-5 flex flex-wrap justify-center gap-3">
               <Badge className="border border-white/15 bg-white/10 px-4 py-2 text-sm text-white hover:bg-white/15">
                 Free Phone Consultation
